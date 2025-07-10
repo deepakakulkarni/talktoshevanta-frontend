@@ -52,8 +52,8 @@ response = async () => {await fetch(`${backendUrl}/api/process-text`, {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ text: text })
- }
-});
+ });
+}
 
 // For audio files, ensure you construct the full URL
 // For example, if your backend returns '/api/get-audio/some_audio.wav'
