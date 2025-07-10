@@ -46,7 +46,7 @@ function App() {
 const backendUrl = import.meta.env.VITE_BACKEND_URL || ":5000"; // Fallback for local development
 
 // Example API call
-response = async () => {await fetch(`${backendUrl}/api/process-text`, {
+const response1 = async () => {await fetch(`${backendUrl}/api/process-text`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
