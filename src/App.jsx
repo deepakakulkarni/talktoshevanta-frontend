@@ -46,12 +46,13 @@ function App() {
 const backendUrl = import.meta.env.VITE_BACKEND_URL || ":5000"; // Fallback for local development
 
 // Example API call
-response = await fetch(`${backendUrl}/api/process-text`, {
+response = async () => {await fetch(`${backendUrl}/api/process-text`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ text: text })
+ }
 });
 
 // For audio files, ensure you construct the full URL
