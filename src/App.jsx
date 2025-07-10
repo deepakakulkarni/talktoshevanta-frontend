@@ -39,6 +39,26 @@ function App() {
     }
   }
 
+  // Before (local development)
+// const backendUrl = ":5000"; // Or whatever your local Flask port is
+
+// After (Render deployment)
+const backendUrl = import.meta.env.VITE_BACKEND_URL || ":5000"; // Fallback for local development
+
+// Example API call
+const response = await fetch(`${backendUrl}/api/process-text`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ text: text })
+});
+
+// For audio files, ensure you construct the full URL
+// For example, if your backend returns '/api/get-audio/some_audio.wav'
+// You would construct: `${backendUrl}/api/get-audio/some_audio.wav`
+const audioUrl = `${backendUrl}${data.audio_url}`;
+  
   // Initialize speech recognition
   useEffect(() => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
